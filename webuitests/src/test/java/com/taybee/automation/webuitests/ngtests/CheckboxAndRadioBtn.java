@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class CheckboxAndRadioBtn extends WebUITestBase {
+public class CheckboxAndRadioBtn extends NGWebUITestBase {
 	
   @Test
   public void chechboxAndRadioBtnTest() {

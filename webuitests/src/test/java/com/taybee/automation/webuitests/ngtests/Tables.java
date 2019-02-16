@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
-public class Tables extends WebUITestBase {
+public class Tables extends NGWebUITestBase {
 
 	@Test(priority=1)
 	public void fetchNumberOfRowsAndColumns() {

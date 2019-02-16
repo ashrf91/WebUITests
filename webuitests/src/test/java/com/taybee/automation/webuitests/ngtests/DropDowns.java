@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
 
-public class DropDowns extends WebUITestBase {
+public class DropDowns extends NGWebUITestBase {
   @Test
 	public void dropdownSelectAndMultipuleSelectTest() {
 	  String baseURL = "http://demo.guru99.com/test/newtours/register.php";

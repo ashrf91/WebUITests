@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
 
 import com.google.common.base.Function;
 
-public class ExplicitAndImplicitWaits extends WebUITestBase {
+public class ExplicitAndImplicitWaits extends NGWebUITestBase {
 	
 	@Test
 	public void implicitWait() {

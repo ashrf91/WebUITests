@@ -3,7 +3,7 @@ package com.taybee.automation.webuitests.ngtests;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;		
 
-public class FirstSeleniumWebdriverScript extends WebUITestBase {
+public class FirstSeleniumWebdriverScript extends NGWebUITestBase {
 	@Test				
 	public void getTitleTest() {	
         String baseUrl = "http://demo.guru99.com/test/newtours/";

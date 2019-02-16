@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public class WebUITestBase {
+public class NGWebUITestBase {
 	protected WebDriver driver;
 	protected static final long LONGTIMEOUT = 30000L;
 	protected static final long SHORTTIMEOUT = 3000L;
