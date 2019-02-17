@@ -26,7 +26,7 @@ public class LoginToFacebook extends BDDWebUITestBase {
 
 	@Then("^Login should be unsuccessful$")
 	public void validateRelogin() throws Exception {
-		if (getCurrentURL().equalsIgnoreCase("https://www.tacebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110")) {
+		if (getCurrentURL().equalsIgnoreCase("https://www.facebook.com/login/device-based/regular/login/?login_attempt=1&lwv=110")) {
 			Report.report("Page url is as expected.", Status.PASS);
 		} else {
 			System.out.println("Test Failed");

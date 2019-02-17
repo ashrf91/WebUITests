@@ -23,6 +23,6 @@ Feature: Facebook Login
       | username1 | password1 |
       | username2 | password2 |
 
-  @tag3
+  @Ashrf
   Scenario: Finesh the UI tests
     * UI Finesh test
