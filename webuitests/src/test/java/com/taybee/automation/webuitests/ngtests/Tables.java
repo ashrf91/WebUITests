@@ -11,20 +11,20 @@ public class Tables extends NGWebUITestBase {
 
 	@Test(priority=1)
 	public void fetchNumberOfRowsAndColumns() {
-		driver.navigate().to("http://demo.guru99.com/test/web-table-element.php");
+		getWebDriver().navigate().to("http://demo.guru99.com/test/web-table-element.php");
 		// Number of Columns
-		List<WebElement> col = driver.findElements(By.xpath(".//*[@id=\"leftcontainer\"]/table/thead/tr/th"));
+		List<WebElement> col = getWebDriver().findElements(By.xpath(".//*[@id=\"leftcontainer\"]/table/thead/tr/th"));
 		System.out.println("No of cols are : " + col.size());
 		// No.of rows
-		List<WebElement> rows = driver.findElements(By.xpath(".//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
+		List<WebElement> rows = getWebDriver().findElements(By.xpath(".//*[@id='leftcontainer']/table/tbody/tr/td[1]"));
 		System.out.println("No of rows are : " + rows.size());
 	}
 
 	@Test(priority = 0)
 	public void fetchCellValue() {
-		driver.get("http://demo.guru99.com/test/web-table-element.php");
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		WebElement baseTable = driver.findElement(By.tagName("table"));
+		getWebDriver().get("http://demo.guru99.com/test/web-table-element.php");
+		getWebDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		WebElement baseTable = getWebDriver().findElement(By.tagName("table"));
 
 		// To find third row of table
 		WebElement tableRow = baseTable.findElement(By.xpath("//*[@id=\"leftcontainer\"]/table/tbody/tr[3]"));

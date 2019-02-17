@@ -3,14 +3,15 @@ package com.taybee.automation.webuitests.ngtests;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
+import com.taybee.automation.webuitests.ngtests.NGWebUITestBase;
 
 public class CheckboxAndRadioBtn extends NGWebUITestBase {
 	
   @Test
   public void chechboxAndRadioBtnTest() {
-	  driver.get("http://demo.guru99.com/test/radio.html");					
-      WebElement radio1 = driver.findElement(By.id("vfb-7-1"));							
-      WebElement radio2 = driver.findElement(By.id("vfb-7-2"));							
+	  getWebDriver().get("http://demo.guru99.com/test/radio.html");					
+      WebElement radio1 = getWebDriver().findElement(By.id("vfb-7-1"));							
+      WebElement radio2 = getWebDriver().findElement(By.id("vfb-7-2"));							
       		
       //Radio Button1 is selected.		
       radio1.click();			
@@ -21,7 +22,7 @@ public class CheckboxAndRadioBtn extends NGWebUITestBase {
       System.out.println("Radio Button Option 2 Selected");					
       		
       // Selecting CheckBox		
-      WebElement option1 = driver.findElement(By.id("vfb-6-0"));							
+      WebElement option1 = getWebDriver().findElement(By.id("vfb-6-0"));							
 
       // This will Toggle the Check box 		
       option1.click();			
@@ -37,8 +38,8 @@ public class CheckboxAndRadioBtn extends NGWebUITestBase {
       		
       		
       //Selecting Checkbox and using isSelected Method		
-      driver.get("http://demo.guru99.com/test/facebook.html");					
-      WebElement chkFBPersist = driver.findElement(By.id("persist_box"));							
+      getWebDriver().get("http://demo.guru99.com/test/facebook.html");					
+      WebElement chkFBPersist = getWebDriver().findElement(By.id("persist_box"));							
       for (int i=0; i<2; i++) {											
           chkFBPersist.click (); 			
           System.out.println("Facebook Persists Checkbox Status is -  "+chkFBPersist.isSelected());							

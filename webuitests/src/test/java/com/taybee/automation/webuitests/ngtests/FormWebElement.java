@@ -9,13 +9,13 @@ public class FormWebElement extends NGWebUITestBase {
 	@Test
 	public void test() {
 		String baseUrl = "http://demo.guru99.com/test/login.html";					
-        driver.get(baseUrl);					
+		getWebDriver().get(baseUrl);					
 
         // Get the WebElement corresponding to the Email Address(TextField)		
-        WebElement email = driver.findElement(By.id("email"));							
+        WebElement email = getWebDriver().findElement(By.id("email"));							
 
         // Get the WebElement corresponding to the Password Field		
-        WebElement password = driver.findElement(By.name("passwd"));							
+        WebElement password = getWebDriver().findElement(By.name("passwd"));							
 
         email.sendKeys("abcd@gmail.com");					
         password.sendKeys("abcdefghlkjl");					
@@ -27,7 +27,7 @@ public class FormWebElement extends NGWebUITestBase {
         System.out.println("Text Field Cleared");					
 
         // Find the submit button		
-        WebElement login = driver.findElement(By.id("SubmitLogin"));							
+        WebElement login = getWebDriver().findElement(By.id("SubmitLogin"));							
                     		
         // Using click method to submit form		
         email.sendKeys("abcd@gmail.com");					
@@ -36,10 +36,10 @@ public class FormWebElement extends NGWebUITestBase {
         System.out.println("Login Done with Click");					
         		
         //using submit method to submit the form. Submit used on password field		
-        driver.get(baseUrl);					
-        driver.findElement(By.id("email")).sendKeys("abcd@gmail.com");							
-        driver.findElement(By.name("passwd")).sendKeys("abcdefghlkjl");							
-        driver.findElement(By.id("SubmitLogin")).submit();					
+        getWebDriver().get(baseUrl);					
+        getWebDriver().findElement(By.id("email")).sendKeys("abcd@gmail.com");							
+        getWebDriver().findElement(By.name("passwd")).sendKeys("abcdefghlkjl");							
+        getWebDriver().findElement(By.id("SubmitLogin")).submit();					
         System.out.println("Login Done with Submit");		
 	}
 
