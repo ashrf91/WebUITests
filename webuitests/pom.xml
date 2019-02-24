@@ -61,4 +61,5 @@
 			<url>https://taybee.jfrog.io/taybee/libs-snapshot</url>
 		</snapshotRepository>
 	</distributionManagement>
+	
 </project>
