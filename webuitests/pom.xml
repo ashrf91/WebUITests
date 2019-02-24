@@ -48,4 +48,17 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
+
+	<distributionManagement>
+		<repository>
+			<id>central</id>
+			<name>aolshared3a-releases</name>
+			<url>https://taybee.jfrog.io/taybee/libs-release</url>
+		</repository>
+		<snapshotRepository>
+			<id>snapshots</id>
+			<name>aolshared3a-snapshots</name>
+			<url>https://taybee.jfrog.io/taybee/libs-snapshot</url>
+		</snapshotRepository>
+	</distributionManagement>
 </project>
