@@ -26,9 +26,11 @@ public class BDDHooks {
 //		}
 //	}
 
-	@After
+	/*@After
 	public void after(Scenario scenario){
+		if(!scenario.getName().equals("")) {
 	    final byte[] screenshot = WebUITestBase.getScreenshot();
 	    scenario.embed(screenshot, "image/png");
-	}
+		}
+	}*/
 }
