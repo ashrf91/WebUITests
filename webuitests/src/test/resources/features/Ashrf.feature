@@ -1,5 +1,5 @@
 @Ashrf
-Feature: Data table
+Feature: Ashrf Facebook
 
   Scenario: 
     Given User navigate to Facebook
