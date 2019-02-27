@@ -1,4 +1,4 @@
-@tag
+@Functional
 Feature: Facebook Login
 
   @Ashrf

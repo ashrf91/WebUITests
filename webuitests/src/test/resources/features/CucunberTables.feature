@@ -1,4 +1,4 @@
-@Ashrfa
+@Functional
 Feature: Data table
 
   Scenario: 
