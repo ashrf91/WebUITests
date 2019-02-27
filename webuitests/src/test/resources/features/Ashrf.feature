@@ -12,3 +12,6 @@ Feature: Ashrf Facebook
       | Password               | Password1           |
       | Birthdate              |                  01 |
     * UI Finesh test
+    
+    Scenario: Finesh the UI tests
+    * UI Finesh test

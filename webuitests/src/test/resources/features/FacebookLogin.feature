@@ -1,7 +1,7 @@
 @Functional
 Feature: Facebook Login
 
-  @Ashrf
+  @tag1
   Scenario: Title of your scenario
     Given User navigate to Facebook
     When User logs in using Username as "ashrf" and Password as "ashrfpass"
@@ -23,6 +23,6 @@ Feature: Facebook Login
       | username1 | password1 |
       | username2 | password2 |
 
-  @Ashrf
+  @tag4
   Scenario: Finesh the UI tests
     * UI Finesh test
