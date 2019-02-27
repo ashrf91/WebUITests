@@ -1,5 +1,6 @@
 package com.taybee.automation.webuitests.bddtests;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import testbase.WebUITestBase;
@@ -25,4 +26,9 @@ public class BDDHooks {
 //		}
 //	}
 
+	@After
+	public void after(Scenario scenario){
+	    final byte[] screenshot = WebUITestBase.getScreenshot();
+	    scenario.embed(screenshot, "image/png");
+	}
 }
