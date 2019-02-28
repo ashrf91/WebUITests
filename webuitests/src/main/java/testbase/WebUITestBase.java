@@ -7,10 +7,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 
 import cucumber.api.Scenario;
 
@@ -23,12 +24,27 @@ public class WebUITestBase {
 	private static final long SHORTTIMEOUT = 3000L;
 
 	public static void webUITestInit() {
-		// it is used to define Chrome capability
-		System.setProperty("webdriver.chrome.driver",
-				WebUITestBase.class.getClassLoader().getResource("chromedriver.exe").getPath());
-		driver = new ChromeDriver();
+		driver = getWebDriverByType(WebDriverType.EDGE);
 		driver.manage().window().maximize();
 		WebUITestBase.isDriverAlive = true;
+	}
+
+	private static WebDriver getWebDriverByType(WebDriverType driverType) {
+		System.setProperty(driverType.getBrowserName(), driverType.getBrowserPath());
+		switch (driverType) {
+		case CHROME: {
+			return new ChromeDriver();
+		}
+		case FIREFOX: {
+			return new FirefoxDriver();
+		}
+		case EDGE: {
+			return new EdgeDriver();
+		}
+		default: {
+			return new ChromeDriver();
+		}
+		}
 	}
 
 	public static void webUITestFinesh() {
@@ -85,6 +101,24 @@ public class WebUITestBase {
 		return weList;
 	}
 
+	public static String fluentWaitGetElementText(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, LONGTIMEOUT / 1000);
+		WebElement we = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		takeScreenShot();
+		return we.getText();
+
+	}
+
+	protected void fluentWaitElementToAppear(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, LONGTIMEOUT / 1000);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+
+	protected void fluentWaitElementToDisappear(By locator) {
+		WebDriverWait wait = new WebDriverWait(driver, LONGTIMEOUT / 1000);
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(locator));
+	}
+
 	public static void navigateTo(String URL) {
 		driver.navigate().to(URL);
 	}
@@ -96,7 +130,7 @@ public class WebUITestBase {
 	public static void takeScreenShot() {
 		scnario.embed(getScreenshot(), "image/png");
 	}
-	
+
 	public static byte[] getScreenshot() {
 		return ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
 	}
