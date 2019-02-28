@@ -57,7 +57,9 @@ public class WebUITestBase {
 
 	public static void fluentWaitTypeToElement(By locator, String text) {
 		WebDriverWait wait = new WebDriverWait(driver, LONGTIMEOUT / 1000);
-		wait.until(ExpectedConditions.elementToBeClickable(locator)).sendKeys(text);
+		WebElement we = wait.until(ExpectedConditions.elementToBeClickable(locator));
+		we.clear();
+		we.sendKeys(text);
 		takeScreenShot();
 	}
 
