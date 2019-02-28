@@ -1,7 +1,7 @@
 @Ashrf
 Feature: Ashrf Facebook
 
-  Scenario: 
+  Scenario: Regester Facebook Acount
     Given User navigate to Facebook
     When I enter invalid data on the page
       | Fields                 | Values              |
