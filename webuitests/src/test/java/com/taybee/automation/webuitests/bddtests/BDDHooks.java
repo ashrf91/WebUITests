@@ -7,7 +7,7 @@ import testbase.WebUITestBase;
 
 public class BDDHooks {
 	@Before()
-	public void embedScreenshotStep(Scenario scenario) {
+	public void before(Scenario scenario) {
 
 		WebUITestBase.scnario = scenario;
 
