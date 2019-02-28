@@ -6,6 +6,7 @@ public class BDDWebUITestBase extends WebUITestBase {
 
 	public static boolean isInit = false;
 
+	
 	public BDDWebUITestBase() {
 		if (!isInit) {
 			WebUITestBase.webUITestInit();

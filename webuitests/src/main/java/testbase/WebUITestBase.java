@@ -1,10 +1,6 @@
 package testbase;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.List;
-
-import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -15,11 +11,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.taybee.automation.report.Report;
-import com.taybee.automation.report.Status;
+
+import cucumber.api.Scenario;
 
 public class WebUITestBase {
 
+	public static Scenario scnario = null;
+	public static boolean isDriverAlive = true;
 	private static WebDriver driver;
 	private static final long LONGTIMEOUT = 30000L;
 	private static final long SHORTTIMEOUT = 3000L;
@@ -30,6 +28,7 @@ public class WebUITestBase {
 				WebUITestBase.class.getClassLoader().getResource("chromedriver.exe").getPath());
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
+		WebUITestBase.isDriverAlive = true;
 	}
 
 	public static void webUITestFinesh() {
@@ -93,30 +92,7 @@ public class WebUITestBase {
 	}
 
 	public static void takeScreenShot() {
-
-		/*
-		 * String fileWithPath =
-		 * WebUITestBase.class.getClassLoader().getResource("").getPath(); // Convert
-		 * web driver object to TakeScreenshot
-		 * 
-		 * TakesScreenshot scrShot = ((TakesScreenshot) driver);
-		 * 
-		 * // Call getScreenshotAs method to create image file
-		 * 
-		 * File SrcFile = scrShot.getScreenshotAs(OutputType.FILE); fileWithPath =
-		 * fileWithPath + SrcFile.getName();
-		 * 
-		 * // Move image file to new destination
-		 * 
-		 * File DestFile = new File(fileWithPath);
-		 * 
-		 * // Copy file at destination
-		 * 
-		 * try { FileUtils.copyFile(SrcFile, DestFile); } catch(IOException e) {
-		 * Report.report("Failed to take screenshot: fail to copy image file!",
-		 * Status.FAIL); }
-		 */
-
+		scnario.embed(getScreenshot(), "image/png");
 	}
 	
 	public static byte[] getScreenshot() {

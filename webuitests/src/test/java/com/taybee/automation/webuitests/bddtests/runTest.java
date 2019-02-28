@@ -5,7 +5,7 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(tags = {"@Functional"},
+@CucumberOptions(tags = {"@Ashrf"},
 		features = "src/test/resources/features", 
 		glue = "com.taybee.automation.webuitests.bddtests",
 		monochrome = true,

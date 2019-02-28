@@ -6,31 +6,18 @@ import cucumber.api.java.Before;
 import testbase.WebUITestBase;
 
 public class BDDHooks {
+	@Before()
+	public void embedScreenshotStep(Scenario scenario) {
 
-//	public static boolean isInit = false;
-//	public static boolean isFineshed = false;
-//
-//	@Before
-//	public void beforeTest() {
-//		if (!isInit) {
-//			WebUITestBase.webUITestInit();
-//			isInit = true;
-//		}
-//	}
-//
-//	@After
-//	public void afterTest() {
-//		if (!isFineshed) {
-//			WebUITestBase.webUITestFinesh();
-//			isFineshed = true;
-//		}
-//	}
+		WebUITestBase.scnario = scenario;
 
-	/*@After
-	public void after(Scenario scenario){
-		if(!scenario.getName().equals("")) {
-	    final byte[] screenshot = WebUITestBase.getScreenshot();
-	    scenario.embed(screenshot, "image/png");
+	}
+
+	@After
+	public void after(Scenario scenario) {
+		if (WebUITestBase.isDriverAlive) {
+			final byte[] screenshot = WebUITestBase.getScreenshot();
+			scenario.embed(screenshot, "image/png");
 		}
-	}*/
+	}
 }
