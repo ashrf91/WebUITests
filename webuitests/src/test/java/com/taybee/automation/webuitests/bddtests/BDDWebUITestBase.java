@@ -1,6 +1,6 @@
 package com.taybee.automation.webuitests.bddtests;
 
-import testbase.WebUITestBase;
+import com.taybee.automation.webuitests.testbase.WebUITestBase;
 
 public class BDDWebUITestBase extends WebUITestBase {
 

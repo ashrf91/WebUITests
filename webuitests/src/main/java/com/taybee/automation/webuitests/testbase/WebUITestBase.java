@@ -1,4 +1,4 @@
-package testbase;
+package com.taybee.automation.webuitests.testbase;
 
 import java.util.List;
 import org.openqa.selenium.By;
@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.taybee.automation.webuitests.testbase.enums.WebDriverType;
+
 import cucumber.api.Scenario;
 
 public class WebUITestBase {
@@ -22,11 +24,20 @@ public class WebUITestBase {
 	private static WebDriver driver;
 	private static final long LONGTIMEOUT = 30000L;
 	private static final long SHORTTIMEOUT = 3000L;
+	private static UIConfigurations uiConfigurations;
 
 	public static void webUITestInit() {
-		driver = getWebDriverByType(WebDriverType.EDGE);
+		uiConfigurations = new UIConfigurations(null);
+		String browserType = System.getProperty("BrowserType");
+		if(browserType == null || browserType.equals("")) {
+			//get browser type from configuration class.
+			browserType = uiConfigurations.getBrowserType();
+		}
+		WebDriverType wdt = WebDriverType.valueOf(browserType.toUpperCase());
+		driver = getWebDriverByType(wdt);
 		driver.manage().window().maximize();
 		WebUITestBase.isDriverAlive = true;
+		driver.get(uiConfigurations.getBaseURL());
 	}
 
 	private static WebDriver getWebDriverByType(WebDriverType driverType) {

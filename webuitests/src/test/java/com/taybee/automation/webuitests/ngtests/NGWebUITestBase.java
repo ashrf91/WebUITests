@@ -1,8 +1,6 @@
 package com.taybee.automation.webuitests.ngtests;
 
-//import org.testng.annotations.AfterClass;
-//import org.testng.annotations.BeforeClass;
-import testbase.WebUITestBase;
+import com.taybee.automation.webuitests.testbase.WebUITestBase;
 
 public class NGWebUITestBase extends WebUITestBase {
 //	@BeforeClass

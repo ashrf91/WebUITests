@@ -1,9 +1,10 @@
 package com.taybee.automation.webuitests.bddtests;
 
+import com.taybee.automation.webuitests.testbase.WebUITestBase;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
-import testbase.WebUITestBase;
 
 public class BDDHooks {
 	@Before()
